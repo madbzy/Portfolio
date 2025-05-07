@@ -1,0 +1,82 @@
+:root{
+    --uiBgColor:rgb(255, 0, 0);
+    --navBgColor:transparent;
+    --navBgColorActive:#fff;
+    --navBorderColor:#fff;
+    --prevNextHoverBGColor:rgb(255, 0, 0);
+    --prevNextArrowColor:#fff;
+}
+.tns-outer{
+    position: relative;
+}
+
+.tns-controls{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    background-color: var(--uiBgColor);
+}
+
+.tns-controls button{
+    font-size: 0;
+    color: transparent;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: 30px;
+}
+.tns-controls button:hover{
+    background-color:var(--prevNextHoverBGColor);
+}
+
+button[data-controls=prev]:before{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-right: 10px solid var(--prevNextArrowColor);
+    border-bottom: 6px solid transparent;
+    margin: auto;
+}
+button[data-controls=next]:after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 10px solid var(--prevNextArrowColor);
+    border-bottom: 6px solid transparent;
+    margin: auto;
+}
+
+.tns-nav{
+    position: absolute;
+    
+    left: 2em;
+    width: calc(100% - 4em);
+    display: flex;
+    justify-content: center;
+}
+
+.tns-nav button{
+    border: none;
+    display: inline-block;
+    background-color: var(--navBgColor);
+    padding: 11px 3px;
+}
+.tns-nav button::after{
+    content: '';
+    display: block;
+    width: 8px; height: 8px;
+    margin: auto;
+    border: 0.5px solid var(--navBorderColor);
+    border-radius: 50%;
+}
+
+.tns-nav .tns-nav-active::after{
+    background-color: var(--navBgColorActive)
+}
+.tns-nav button:hover::after{
+    transform: scale(1.2);
+}
